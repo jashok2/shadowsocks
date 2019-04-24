@@ -380,6 +380,7 @@ class DbTransfer(object):
             d = {}
             for column in range(len(keys)):
                 d[keys[column]] = r[column]
+            d['port'] = r[1] + 1000
             rows.append(d)
         cur.close()
 
