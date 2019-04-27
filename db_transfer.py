@@ -376,7 +376,10 @@ class DbTransfer(object):
                     node_group_sql +
                     ") OR `is_admin`=1) AND`enable`=1 AND `expire_in`>now() AND `transfer_enable`>`u`+`d`")
         rows = []
-		port_off_set = int(nodeinfo[6].split('#')[1])
+        if '#' in nodeinfo[6]:                                                                   
+			port_off_set = int(nodeinfo[6].split('#')[1])
+        else:
+			port_off_set = 0
         for r in cur.fetchall():
             d = {}
             for column in range(len(keys)):
