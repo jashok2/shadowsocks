@@ -339,7 +339,7 @@ class DbTransfer(object):
 
         cur = conn.cursor()
 
-        cur.execute("SELECT `node_group`,`node_class`,`node_speedlimit`,`traffic_rate`,`mu_only`,`sort`,`name` FROM ss_node where `id`='" +
+        cur.execute("SELECT `node_group`,`node_class`,`node_speedlimit`,`traffic_rate`,`mu_only`,`sort`,`port_offset` FROM ss_node where `id`='" +
                     str(get_config().NODE_ID) + "' AND (`node_bandwidth`<`node_bandwidth_limit` OR `node_bandwidth_limit`=0)")
         nodeinfo = cur.fetchone()
 
@@ -376,10 +376,7 @@ class DbTransfer(object):
                     node_group_sql +
                     ") OR `is_admin`=1) AND`enable`=1 AND `expire_in`>now() AND `transfer_enable`>`u`+`d`")
         rows = []
-        if '#' in nodeinfo[6]:                                                                   
-			port_off_set = int(nodeinfo[6].split('#')[1])
-        else:
-			port_off_set = 0
+        port_off_set = int(nodeinfo[6])
         for r in cur.fetchall():
             d = {}
             for column in range(len(keys)):
