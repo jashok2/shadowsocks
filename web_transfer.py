@@ -616,7 +616,7 @@ class WebTransfer(object):
         logging.info(
             'db start server at port [%s] pass [%s] protocol [%s] method [%s] obfs [%s]' %
             (new_port, passwd, protocol, method, obfs))
-        ServerPool.get_instance().new_server(port, cfg)
+        ServerPool.get_instance().new_server(new_port, cfg)
 
     @staticmethod
     def del_servers():
