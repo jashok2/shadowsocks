@@ -612,7 +612,10 @@ class WebTransfer(object):
             ServerPool.get_instance().config.get(
                 'obfs',
                 'plain'))
-	new_port = port + self.port_offset
+	if self.mu_only == 1:
+		new_port = port + self.port_offset
+	else:
+		new_port = port
         logging.info(
             'db start server at port [%s] pass [%s] protocol [%s] method [%s] obfs [%s]' %
             (new_port, passwd, protocol, method, obfs))
