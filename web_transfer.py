@@ -615,7 +615,7 @@ class WebTransfer(object):
 	new_port = port + self.port_offset
         logging.info(
             'db start server at port [%s] pass [%s] protocol [%s] method [%s] obfs [%s]' %
-            (port, passwd, protocol, method, obfs))
+            (new_port, passwd, protocol, method, obfs))
         ServerPool.get_instance().new_server(port, cfg)
 
     @staticmethod
