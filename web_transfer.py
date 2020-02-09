@@ -217,7 +217,7 @@ class WebTransfer(object):
 
         self.mu_only = nodeinfo['mu_only']
 	self.port_offset = int(nodeinfo['port_offset'])
-	self.server_port_offet = int(nodeinfo['server_port_offet'])
+	self.server_port_offset = int(nodeinfo['server_port_offset'])
 
         if nodeinfo['sort'] == 10:
             self.is_relay = True
