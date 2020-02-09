@@ -216,7 +216,6 @@ class WebTransfer(object):
         self.traffic_rate = nodeinfo['traffic_rate']
 
         self.mu_only = nodeinfo['mu_only']
-	self.port_offset = int(nodeinfo['port_offset'])
 	self.server_port_offset = int(nodeinfo['server_port_offset'])
 
         if nodeinfo['sort'] == 10:
@@ -614,7 +613,7 @@ class WebTransfer(object):
                 'obfs',
                 'plain'))
 	if self.mu_only == 1:
-		new_port = port + self.port_offset + self.server_port_offset
+		new_port = port + self.server_port_offset
 	else:
 		new_port = port
         logging.info(
