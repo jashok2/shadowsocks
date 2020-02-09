@@ -217,6 +217,7 @@ class WebTransfer(object):
 
         self.mu_only = nodeinfo['mu_only']
 	self.port_offset = int(nodeinfo['port_offset'])
+	self.server_port_offet = int(nodeinfo['server_port_offet'])
 
         if nodeinfo['sort'] == 10:
             self.is_relay = True
@@ -613,7 +614,7 @@ class WebTransfer(object):
                 'obfs',
                 'plain'))
 	if self.mu_only == 1:
-		new_port = port + self.port_offset
+		new_port = port + self.port_offset + self.server_port_offset
 	else:
 		new_port = port
         logging.info(
